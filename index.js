@@ -5,13 +5,18 @@ module.exports = function first(stuff, done) {
 
   var cleanups = []
 
-  stuff.forEach(function (arr) {
+  for (var i = 0; i < stuff.length; i++) {
+    var arr = stuff[i]
+
     if (!Array.isArray(arr) || arr.length < 2)
       throw new TypeError('each array member must be [ee, events...]')
 
-    var ee = arr.shift()
+    var ee = arr[0]
 
-    arr.forEach(function (event) {
+    for (var j = 1; j < arr.length; j++) {
+      var event = arr[j]
+      var fn = listener(event, cleanup)
+
       // listen to the event
       ee.on(event, fn)
       // push this listener to the list of cleanups
@@ -20,23 +25,36 @@ module.exports = function first(stuff, done) {
         event: event,
         fn: fn,
       })
-
-      function fn(err) {
-        cleanup()
-        if (event === 'error') return done(err, ee, 'error')
-        done(null, ee, event)
-      }
-    })
-  })
+    }
+  }
 
   return function (fn) {
     done = fn
   }
 
   function cleanup() {
-    while (cleanups.length) {
-      var x = cleanups.shift()
+    var x
+    for (var i = 0; i < cleanups.length; i++) {
+      x = cleanups[i]
       x.ee.removeListener(x.event, x.fn)
     }
+    done.apply(null, arguments)
+  }
+}
+
+function listener(event, done) {
+  return function onevent(arg1) {
+    var args = new Array(arguments.length)
+    var ee = this
+    var err = event === 'error'
+      ? arg1
+      : null
+
+    // copy args to prevent arguments escaping scope
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i]
+    }
+
+    done(err, ee, event, args)
   }
 }

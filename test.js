@@ -14,10 +14,11 @@ describe('first', function () {
       [ee1, 'a', 'b', 'c'],
       [ee2, 'a', 'b', 'c'],
       [ee3, 'a', 'b', 'c'],
-    ], function (err, ee, event) {
+    ], function (err, ee, event, args) {
       assert.ifError(err)
       assert.equal(ee, ee2)
       assert.equal(event, 'b')
+      assert.deepEqual(args, [1, 2, 3])
       done()
     })
 
@@ -29,7 +30,7 @@ describe('first', function () {
       [ee1, 'error', 'b', 'c'],
       [ee2, 'error', 'b', 'c'],
       [ee3, 'error', 'b', 'c'],
-    ], function (err, ee, event) {
+    ], function (err, ee, event, args) {
       assert.equal(err.message, 'boom')
       assert.equal(ee, ee3)
       assert.equal(event, 'error')
@@ -44,7 +45,7 @@ describe('first', function () {
       [ee1, 'a', 'b', 'c'],
       [ee2, 'a', 'b', 'c'],
       [ee3, 'a', 'b', 'c'],
-    ], function (err, ee, event) {
+    ], function (err, ee, event, args) {
       assert.ifError(err)
       ;[ee1, ee2, ee3].forEach(function (ee) {
         ['a', 'b', 'c'].forEach(function (event) {
