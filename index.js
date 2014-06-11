@@ -1,5 +1,5 @@
 
-var slice = [].slice
+var slice = require('sliced')
 
 module.exports = function first(stuff, done) {
   if (!Array.isArray(stuff))
@@ -27,7 +27,7 @@ module.exports = function first(stuff, done) {
         cleanup()
         if (event === 'error') return done(err, ee, 'error')
         done(null, ee, event, arguments.length > 1
-          ? slice.call(arguments)
+          ? slice(arguments)
           : err)
       }
     })
