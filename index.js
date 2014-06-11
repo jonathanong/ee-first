@@ -1,6 +1,4 @@
 
-var slice = require('sliced')
-
 module.exports = function first(stuff, done) {
   if (!Array.isArray(stuff))
     throw new TypeError('arg must be an array of [ee, events...] arrays')
@@ -26,9 +24,7 @@ module.exports = function first(stuff, done) {
       function fn(err) {
         cleanup()
         if (event === 'error') return done(err, ee, 'error')
-        done(null, ee, event, arguments.length > 1
-          ? slice(arguments)
-          : err)
+        done(null, ee, event)
       }
     })
   })
