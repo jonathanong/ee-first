@@ -9,6 +9,19 @@ describe('first', function () {
   var ee2 = new EventEmitter()
   var ee3 = new EventEmitter()
 
+  it('should require array argument', function () {
+    assert.throws(first.bind())
+    assert.throws(first.bind(null, 'string'))
+    assert.throws(first.bind(null, 42))
+    assert.throws(first.bind(null, {}))
+  })
+
+  it('should require array of arrays argument', function () {
+    assert.throws(first.bind(null, [0]))
+    assert.throws(first.bind(null, ['string']))
+    assert.throws(first.bind(null, [[ee1], 'string']))
+  })
+
   it('should emit the first event', function (done) {
     first([
       [ee1, 'a', 'b', 'c'],
@@ -56,5 +69,22 @@ describe('first', function () {
     })
 
     ee1.emit('a')
+  })
+
+  it('should return a thunk', function (done) {
+    var thunk = first([
+      [ee1, 'a', 'b', 'c'],
+      [ee2, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c'],
+    ])
+    thunk(function (err, ee, event, args) {
+      assert.ifError(err)
+      assert.equal(ee, ee2)
+      assert.equal(event, 'b')
+      assert.deepEqual(args, [1, 2, 3])
+      done()
+    })
+
+    ee2.emit('b', 1, 2, 3)
   })
 })
