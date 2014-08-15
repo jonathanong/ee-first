@@ -1,6 +1,8 @@
 # EE First
 
 [![NPM version][npm-image]][npm-url]
+[![Build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
 [![Gittip][gittip-image]][gittip-url]
@@ -49,6 +51,10 @@ first([
 [npm-url]: https://npmjs.org/package/ee-first
 [github-tag]: http://img.shields.io/github/tag/jonathanong/ee-first.svg?style=flat-square
 [github-url]: https://github.com/jonathanong/ee-first/tags
+[travis-image]: https://img.shields.io/travis/jonathanong/ee-first.svg?style=flat-square
+[travis-url]: https://travis-ci.org/jonathanong/ee-first
+[coveralls-image]: https://img.shields.io/coveralls/jonathanong/ee-first.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/jonathanong/ee-first?branch=master
 [license-image]: http://img.shields.io/npm/l/ee-first.svg?style=flat-square
 [license-url]: LICENSE.md
 [downloads-image]: http://img.shields.io/npm/dm/ee-first.svg?style=flat-square
