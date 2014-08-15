@@ -2,7 +2,7 @@
 var EventEmitter = require('events').EventEmitter
 var assert = require('assert')
 
-var first = require('./')
+var first = require('..')
 
 describe('first', function () {
   var ee1 = new EventEmitter()
