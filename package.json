@@ -18,7 +18,8 @@
     "mocha": "1"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "LICENSE"
   ],
   "scripts": {
     "test": "mocha --reporter spec --bail --check-leaks test/",
