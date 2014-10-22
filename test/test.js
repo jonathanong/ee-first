@@ -87,4 +87,38 @@ describe('first', function () {
 
     ee2.emit('b', 1, 2, 3)
   })
+
+  it('should not emit after thunk.cancel()', function (done) {
+    var thunk = first([
+      [ee1, 'a', 'b', 'c'],
+      [ee2, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c'],
+    ])
+    thunk(function () {
+      assert.ok(false)
+    })
+
+    thunk.cancel()
+
+    ee2.emit('b', 1, 2, 3)
+
+    setTimeout(done, 10)
+  })
+
+  it('should cleanup after thunk.cancel()', function (done) {
+    var thunk = first([
+      [ee1, 'a', 'b', 'c'],
+      [ee2, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c'],
+    ])
+
+    thunk.cancel()
+
+    ;[ee1, ee2, ee3].forEach(function (ee) {
+      ['a', 'b', 'c'].forEach(function (event) {
+        assert(!ee.listeners(event).length)
+      })
+    })
+    done()
+  })
 })
