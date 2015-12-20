@@ -14,8 +14,8 @@
   "license": "MIT",
   "repository": "jonathanong/ee-first",
   "devDependencies": {
-    "istanbul": "0.3.9",
-    "mocha": "2.2.5"
+    "istanbul": "0.4.1",
+    "mocha": "2.3.4"
   },
   "files": [
     "index.js",
