@@ -15,7 +15,7 @@
   "repository": "jonathanong/ee-first",
   "devDependencies": {
     "istanbul": "0.4.2",
-    "mocha": "2.3.4"
+    "mocha": "2.4.1"
   },
   "files": [
     "index.js",
