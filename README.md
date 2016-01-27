@@ -72,7 +72,7 @@ thunk.cancel()
 [travis-url]: https://travis-ci.org/jonathanong/ee-first
 [coveralls-image]: https://img.shields.io/coveralls/jonathanong/ee-first.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/jonathanong/ee-first?branch=master
-[license-image]: http://img.shields.io/npm/l/ee-first.svg?style=flat-square
+[license-image]: https://img.shields.io/npm/l/ee-first.svg?style=flat-square
 [license-url]: LICENSE.md
 [downloads-image]: http://img.shields.io/npm/dm/ee-first.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/ee-first
