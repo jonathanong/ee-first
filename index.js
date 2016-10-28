@@ -21,17 +21,19 @@ module.exports = first
  * @public
  */
 
-function first(stuff, done) {
-  if (!Array.isArray(stuff))
+function first (stuff, done) {
+  if (!Array.isArray(stuff)) {
     throw new TypeError('arg must be an array of [ee, events...] arrays')
+  }
 
   var cleanups = []
 
   for (var i = 0; i < stuff.length; i++) {
     var arr = stuff[i]
 
-    if (!Array.isArray(arr) || arr.length < 2)
+    if (!Array.isArray(arr) || arr.length < 2) {
       throw new TypeError('each array member must be [ee, events...]')
+    }
 
     var ee = arr[0]
 
@@ -45,17 +47,17 @@ function first(stuff, done) {
       cleanups.push({
         ee: ee,
         event: event,
-        fn: fn,
+        fn: fn
       })
     }
   }
 
-  function callback() {
+  function callback () {
     cleanup()
     done.apply(null, arguments)
   }
 
-  function cleanup() {
+  function cleanup () {
     var x
     for (var i = 0; i < cleanups.length; i++) {
       x = cleanups[i]
@@ -63,7 +65,7 @@ function first(stuff, done) {
     }
   }
 
-  function thunk(fn) {
+  function thunk (fn) {
     done = fn
   }
 
@@ -77,8 +79,8 @@ function first(stuff, done) {
  * @private
  */
 
-function listener(event, done) {
-  return function onevent(arg1) {
+function listener (event, done) {
+  return function onevent (arg1) {
     var args = new Array(arguments.length)
     var ee = this
     var err = event === 'error'

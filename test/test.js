@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 
 var EventEmitter = require('events').EventEmitter
 var assert = require('assert')
@@ -26,7 +27,7 @@ describe('first', function () {
     first([
       [ee1, 'a', 'b', 'c'],
       [ee2, 'a', 'b', 'c'],
-      [ee3, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c']
     ], function (err, ee, event, args) {
       assert.ifError(err)
       assert.equal(ee, ee2)
@@ -42,7 +43,7 @@ describe('first', function () {
     first([
       [ee1, 'error', 'b', 'c'],
       [ee2, 'error', 'b', 'c'],
-      [ee3, 'error', 'b', 'c'],
+      [ee3, 'error', 'b', 'c']
     ], function (err, ee, event, args) {
       assert.equal(err.message, 'boom')
       assert.equal(ee, ee3)
@@ -57,7 +58,7 @@ describe('first', function () {
     first([
       [ee1, 'a', 'b', 'c'],
       [ee2, 'a', 'b', 'c'],
-      [ee3, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c']
     ], function (err, ee, event, args) {
       assert.ifError(err)
       ;[ee1, ee2, ee3].forEach(function (ee) {
@@ -75,7 +76,7 @@ describe('first', function () {
     var thunk = first([
       [ee1, 'a', 'b', 'c'],
       [ee2, 'a', 'b', 'c'],
-      [ee3, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c']
     ])
     thunk(function (err, ee, event, args) {
       assert.ifError(err)
@@ -92,7 +93,7 @@ describe('first', function () {
     var thunk = first([
       [ee1, 'a', 'b', 'c'],
       [ee2, 'a', 'b', 'c'],
-      [ee3, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c']
     ])
     thunk(function () {
       assert.ok(false)
@@ -109,7 +110,7 @@ describe('first', function () {
     var thunk = first([
       [ee1, 'a', 'b', 'c'],
       [ee2, 'a', 'b', 'c'],
-      [ee3, 'a', 'b', 'c'],
+      [ee3, 'a', 'b', 'c']
     ])
 
     thunk.cancel()

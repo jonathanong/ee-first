@@ -15,13 +15,15 @@
   "repository": "jonathanong/ee-first",
   "devDependencies": {
     "istanbul": "0.4.5",
-    "mocha": "2.5.3"
+    "mocha": "2.5.3",
+    "standard": "8.5.0"
   },
   "files": [
     "index.js",
     "LICENSE"
   ],
   "scripts": {
+    "lint": "standard index.js test/test.js",
     "test": "mocha --reporter spec --bail --check-leaks test/",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
     "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
