@@ -74,7 +74,7 @@ thunk.cancel()
 [coveralls-url]: https://coveralls.io/r/jonathanong/ee-first?branch=master
 [license-image]: https://img.shields.io/npm/l/ee-first.svg?style=flat-square
 [license-url]: LICENSE.md
-[downloads-image]: http://img.shields.io/npm/dm/ee-first.svg?style=flat-square
+[downloads-image]: https://img.shields.io/npm/dm/ee-first.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/ee-first
 [gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat-square
 [gittip-url]: https://www.gittip.com/jonathanong/
