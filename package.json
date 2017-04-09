@@ -14,8 +14,8 @@
   "license": "MIT",
   "repository": "jonathanong/ee-first",
   "devDependencies": {
-    "istanbul": "0.4.5",
     "mocha": "2.5.3",
+    "nyc": "10.2.0",
     "standard": "10.0.1"
   },
   "files": [
@@ -28,7 +28,7 @@
   "scripts": {
     "lint": "standard index.js test/test.js",
     "test": "mocha --reporter spec --bail --check-leaks test/",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+    "test-cov": "nyc --reporter=html --reporter=text npm test",
+    "test-travis": "nyc --reporter=text npm test"
   }
 }
