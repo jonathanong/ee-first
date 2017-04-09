@@ -16,7 +16,7 @@
   "devDependencies": {
     "istanbul": "0.4.5",
     "mocha": "2.5.3",
-    "standard": "8.6.0"
+    "standard": "10.0.1"
   },
   "files": [
     "index.js",
