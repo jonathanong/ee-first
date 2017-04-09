@@ -22,6 +22,9 @@
     "index.js",
     "LICENSE"
   ],
+  "engines": {
+    "node": ">= 0.8"
+  },
   "scripts": {
     "lint": "standard index.js test/test.js",
     "test": "mocha --reporter spec --bail --check-leaks test/",
