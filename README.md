@@ -5,7 +5,6 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
-[![Gittip][gittip-image]][gittip-url]
 
 Get the first event in a set of event emitters and event pairs,
 then clean up after itself.
@@ -76,5 +75,3 @@ thunk.cancel()
 [license-url]: LICENSE.md
 [downloads-image]: https://img.shields.io/npm/dm/ee-first.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/ee-first
-[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat-square
-[gittip-url]: https://www.gittip.com/jonathanong/
