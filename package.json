@@ -15,7 +15,7 @@
   "repository": "jonathanong/ee-first",
   "devDependencies": {
     "mocha": "2.5.3",
-    "nyc": "11.3.0",
+    "nyc": "11.4.1",
     "standard": "11.0.0"
   },
   "files": [
